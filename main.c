@@ -1,7 +1,10 @@
-// Solve The Problem for this code
+#include <stdio.h>
+#include <stdlib.h>
+// menambahkan library
 
 
-const char* index_nilai(nilai) {
+const char* index_nilai(int nilai) {
+// menambahkan tipe data integer pada nilai
     if (nilai >= 86) {
         return "A";
     } 
@@ -26,8 +29,11 @@ const char* index_nilai(nilai) {
 }
 
 
-float kalkulasi_ip(*matkul, int *sks, int n) {
-    
+float kalkulasi_ip(float *matkul, int *sks, int n) { // melengkapi tipe data *matkul
+
+    int totalSKS = 0;
+    float totalNilai = 0.0;
+// mendeklarasikan variabel totalSKS dan totalNilai
 
     for (int i = 0; i < n; i++) {
         totalNilai += matkul[i] * sks[i];  
@@ -41,7 +47,9 @@ float kalkulasi_ip(*matkul, int *sks, int n) {
 
 int main(){
     char nama[20];
-
+    int umur;
+    long long NRP;
+// mendeklarasikan variabel umur dan NRP
 
     printf("ingfo nama: ");
     fgets(nama, sizeof(nama), stdin);
@@ -50,7 +58,7 @@ int main(){
     scanf("%d" , &umur);
 
     printf("NRP dong biar tau: ");
-    scanf("%d" , &NRP);
+    scanf("%lld" , &NRP); //mengubah pembacaan integer menjadi long 
 
     int n;
     printf("Jumlah matkul Semester ini berapa: ");
@@ -75,7 +83,7 @@ int main(){
 
     printf("\nNama: %s", nama);
     printf("Umur: %d \n", umur);
-    printf("NRP: %d \n" , NRP);
+    printf("NRP: %lld \n" , NRP); //mengubah pembacaan integer menjadi long
 
     for(int j = 0; j < n ; j++){
         printf("Indeks nilai matkul %d: %s\n", j + 1, index_nilai(matkul[j]));
@@ -86,5 +94,6 @@ int main(){
 
     free(matkul); 
     free(sks);
+    system("pause"); //menmbahkan stop agar program tidak close
     return 0;
 }
